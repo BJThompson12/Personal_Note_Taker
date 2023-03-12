@@ -6,6 +6,8 @@ const path = require('path');
 const express = require('express');
 // require path to 
 const app = express();
+// require database to send data to
+const notesDatabase = require('../db/db.json')
 
 // get from the home page to send the notes page
 router.get('/notes', (req, res) => {
@@ -16,6 +18,8 @@ router.get('/notes', (req, res) => {
 router.get('/api/notes', (req, res) => {
   console.log(req);
   console.log('i got the data');
+
+  // need to send the data to the database in json format
 });
 
 //export the router
