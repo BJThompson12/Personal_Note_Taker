@@ -12,5 +12,11 @@ router.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
+//get the information from the posted note
+router.get('/api/notes', (req, res) => {
+  console.log(req);
+  console.log('i got the data');
+});
+
 //export the router
 module.exports = router;
