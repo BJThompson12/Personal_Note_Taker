@@ -32,7 +32,7 @@ const getNotes = () =>
       'Content-Type': 'application/json',
     },
   });
-
+// when you hit save
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',

@@ -16,7 +16,13 @@ router.get('/notes', (req, res) => {
 
 //get the information from the posted note
 router.get('/api/notes', (req, res) => {
-  console.log(req);
+  // console.log(res.json());
+  // console.log('i got the data');
+
+  // need to send the data to the database in json format
+});
+router.post('/api/notes', (req, res) => {
+  console.log(req.body);
   console.log('i got the data');
 
   // need to send the data to the database in json format
