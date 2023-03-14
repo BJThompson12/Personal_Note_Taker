@@ -51,5 +51,21 @@ router.post('/api/notes', (req, res) => {
   res.json(notesDatabase);
 });
 
+// create router to to delete a note
+router.delete('/api/notes/:id', (req, res) => {
+  console.log(req.params.id);
+  // locate the id and compare to sleceted id 
+  for (let i = 0; i < notesDatabase.length; i++) {
+      if (notesDatabase[i].id === req.params.id) {
+        // remove the instance with that id from the array
+          notesDatabase.splice(i, 1);
+      }
+  }
+  // write to the file in the database
+  fs.writeFileSync(path.join(__dirname, '../db/db.json'),
+  JSON.stringify(notesDatabase, null, 2))
+  res.json(notesDatabase);
+})
+
 //export the router
 module.exports = router;
