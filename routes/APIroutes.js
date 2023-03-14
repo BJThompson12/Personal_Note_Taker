@@ -14,6 +14,7 @@ const { v4: uuidv4 } = require('uuid');
 //get the information from the database
 router.get('/api/notes', (req, res) => {
   res.sendFile(path.join(__dirname, "../db/db.json"));
+  //res.json(JSON.parse(data))
   });
 
 //call out the store and then define the date read and write the data
@@ -26,12 +27,28 @@ router.get('/api/notes', (req, res) => {
 // read the db JSON file 
 //write the db JSON
 
-  
+// create post route to POST add the note to the db  
 router.post('/api/notes', (req, res) => {
   console.log(req.body);
-  console.log('i got the data');
+  console.log('this is confirming the req body data returned');
 
   // need to send the data to the database in json format
+  // create a varioable for the note note must include the unique id
+  const newNote = {
+    "title": req.body.title,
+    "text": req.body.text,
+    "id": uuidv4()
+  }
+  console.log(`this is after the new note is created`);
+  console.log(newNote);
+  // add the note to the db object
+  notesDatabase.push(newNote)
+  console.log('this is logging the notes Database');
+  console.log(notesDatabase);
+
+  fs.writeFileSync(path.join(__dirname, '../db/db.json'),
+  JSON.stringify(notesDatabase, null, 2))
+  res.json(notesDatabase);
 });
 
 //export the router
