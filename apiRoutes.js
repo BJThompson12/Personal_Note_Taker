@@ -9,12 +9,10 @@ const { v4: uuidv4 } = require('uuid');
 const notesDatabase = require('./db/db.json') 
 
 //get the information from the database
-router.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, "./db/db.json"));
-
+router.get('/notes.html', (req, res) => {
+  res.sendFile(path.join(__dirname, "/db/db.json"));
   });
-
-  router.post("/notes", (req, res) => {
+  router.post("/notes.html", (req, res) => {
     const { title, text } = req.body;
     let id = uuidv4();
     console.log(id);
@@ -23,7 +21,7 @@ router.get('/notes', (req, res) => {
       text,
       id,
     };
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("/db/db.json", "utf8", (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -31,7 +29,7 @@ router.get('/notes', (req, res) => {
         parsedData.push(newData);
         console.log(parsedData);
         fs.writeFile(
-          "./db/db.json",
+          "/db/db.json",
           JSON.stringify(parsedData, null, 5),
           (err) => {
             err ? console.log(err) : console.log("sucess");
@@ -47,7 +45,7 @@ router.get('/notes', (req, res) => {
       
       let id = req.params.id
       
-      fs.readFile("./db/db.json", "utf8", (err, data) => {
+      fs.readFile("/db/db.json", "utf8", (err, data) => {
         if (err) {
           console.log(err);
         } else {
@@ -56,7 +54,7 @@ router.get('/notes', (req, res) => {
           if (index !== -1){
             parsedData.splice(index, 1)
             fs.writeFile(
-              "./db/db.json",
+              "/db/db.json",
               JSON.stringify(parsedData, null, 5),
               (err) => {
                 err ? console.log(err) : console.log("sucess");
