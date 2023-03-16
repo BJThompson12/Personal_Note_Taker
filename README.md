@@ -1,9 +1,9 @@
-
-  [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
   # Personal_Note_Taker
   ## Description 📋 
   An application to create a readme for your repo within your terminal. 
   ## Table of Contents 🗄️ 
+  ## Table of Contents 🗄️ 
+ - [Frameworks](#Frameworks)
  - [Installation](#Installation)
  - [Usage](#Usage)
  - [License](#License)
@@ -11,16 +11,15 @@
  - [Tests](#Tests)
  - [Questions](#Questions)
  - [Contact Me](#ContactMe)
+ - [Acknowledgement](#Acknowledgement)
+  ## Frameworks 🧰
+  The frameworks used in this aplications are Node js and Bootstrap.
   ## Installation 🛠️ 
-  To install the Application, do the following:
-  1. clone the repo
-  2. go to the repo directory in your terminal
-  3. run node ondex
+  This application runs in-browser and therefore does not require any client-side installation to be performed.
   ## Usage 🖥️ 
-  This application will be used to create a README for your application.
-  Uses are to run node index from their terminal within the repo root folder. 
-  Once the command is input, then the user must answer the proceeding questions. 
+  To use the application, begin by inputing a title for your note. Then you are add any notes or details in the below text field. Once complete, you must    click the save icon to store your note. once you have completed the tast, you can click on the trash can to delete your note.  
   ## License 🔐  
+  N/A
   ## Contributing 📝 
   Users can close the repo and make changes with a PR. PR's must be approved before merging. 
   ## Tests 🧮
@@ -33,6 +32,7 @@
  
   
   <a href="https://user-images.githubusercontent.com/98428608/225756582-4dbde929-3bf0-4ee8-819b-367cf914a5b0.png">Screenshot 2</a>
-  
+  ## Acknowledgements 🎉
+  Thank you for the help and assistance fro my cohorts and TA's.
 
   
