@@ -6,8 +6,6 @@ const apiRouter = express.Router()
  const path = require('path');
  // require fs to read and write
  const fs = require('fs')
-// require database to read and write and send data to
-const notesDatabase = require('../db/db.json')
 // require the ID generator
 // uuidv4() to use
 const { v4: uuidv4 } = require('uuid');
@@ -41,6 +39,7 @@ apiRouter.get('/notes', (req, res) => {
 // });
 
 apiRouter.post("/notes", (req, res) => {
+  console.log(req.id);
   const { title, text } = req.body;
   let id = uuidv4();
   console.log(id);
@@ -55,6 +54,7 @@ apiRouter.post("/notes", (req, res) => {
     } else {
       const parsedData = JSON.parse(data);
       parsedData.push(newData);
+      console.log(parsedData);
       fs.writeFile(
         "./db/db.json",
         JSON.stringify(parsedData, null, 5),
@@ -68,20 +68,30 @@ apiRouter.post("/notes", (req, res) => {
 });
 
 // create router to to delete a note
-// apiRouter.delete('/notes/:id', (req, res) => {
-//   console.log(req.params.id);
-//   // locate the id and compare to slected id 
-//   for (let i = 0; i < notesDatabase.length; i++) {
-//       if (notesDatabase[i].id === req.params.id) {
-//         // remove the instance with that id from the array 
-//           notesDatabase.splice(i, 1);
-//       }
-//   }
-//   // write to the file in the database
-//   fs.writeFile(path.join(__dirname, '../db/db.json'),
-//   JSON.stringify(notesDatabase, null, 2))
-//   res.json(notesDatabase);
-// })
+apiRouter.delete("/notes/:id", (req, res) => {
+
+  let id = req.params.id
+
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      const index = parsedData.findIndex((element) => element.id === id)
+      if (index !== -1){
+        parsedData.splice(index, 1)
+        fs.writeFile(
+          "./db/db.json",
+          JSON.stringify(parsedData, null, 5),
+          (err) => {
+            err ? console.log(err) : console.log("sucess");
+          }
+        );
+      }
+      res.send();
+    }
+  });
+});
 
 //export the router
 module.exports = apiRouter;

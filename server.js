@@ -1,6 +1,7 @@
 const express = require('express');
 // const apiRouter = require("./routes/apiRoutes");
 // const htmlRouter = require("./routes/htmlRoutes");
+const apiRouter = require('./routes/apiRoutes')
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,7 +28,7 @@ app.get('/notes', (req, res) => {
 // set app to use html route
 //app.use('/', htmlRouter);
 //set app to use route
-//app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 // set listening on the port
 
