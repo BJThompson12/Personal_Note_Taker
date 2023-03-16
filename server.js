@@ -3,7 +3,7 @@ const express = require('express');
 //require path
 const path = require('path');
 //require the api routes
-const apiRoutes = require('./routes/apiRoutes.js')
+const apiRoutes = require('./apiRoutes.js')
 //const htmlRoutes = require('./routes/htmlRoutes.js')
 const app = express();
 

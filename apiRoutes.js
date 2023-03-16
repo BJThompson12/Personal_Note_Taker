@@ -6,11 +6,11 @@ const path = require('path');
 const fs = require('fs')
 // require the ID generator uuidv4() to use
 const { v4: uuidv4 } = require('uuid');
-const notesDatabase = require('../db/db.json') 
+const notesDatabase = require('./db/db.json') 
 
 //get the information from the database
 router.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, "../db/db.json"));
+  res.sendFile(path.join(__dirname, "./db/db.json"));
 
   });
 
