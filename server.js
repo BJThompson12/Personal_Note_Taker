@@ -15,13 +15,14 @@ app.use(express.json());
 
 // router to go back to home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 // get from the home page to send the notes page
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'))
-  console.log(__dirname);
+  test = (res.sendFile(path.join(__dirname + '/public/notes.html')));
+  console.log(test);
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
  });
  
 //set app to use route
