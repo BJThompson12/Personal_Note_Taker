@@ -2,9 +2,9 @@
 const express = require('express');
 //require path
 const path = require('path');
-const app = express();
 //require the api routes
 const api = require('./routes/apiRoutes.js')
+const app = express();
 
 const PORT = process.env.PORT || 3001;
 
