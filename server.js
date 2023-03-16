@@ -1,17 +1,23 @@
+// require exress
 const express = require('express');
+//require path
 const path = require('path');
-
-const router = require('./routes/apiRoutes')
+//require the api routes
+//const api = require('./routes/apiRoutes')
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
-app.use(express.static('public'));
 
 // parse for web
-//app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+//set app to use route
+// app.use('/api', api);
+
+app.use(express.static('public'));
 
 // router to go back to home page
 app.get('/', (req, res) => {
@@ -23,10 +29,6 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'))
  });
  
-//set app to use route
-app.use('/api', router);
-// set app to use html route
-// app.use('/', htmlRouter)
 
 // set listening on the port
 app.listen(PORT, () => {

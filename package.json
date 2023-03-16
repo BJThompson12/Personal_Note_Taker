@@ -11,10 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "uuid": "^9.0.0",
-    "node": "^19.8.1"
+    "node": "^19.8.1",
+    "uuid": "^9.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BJThompson12/Personal_Note_Taker.git"
