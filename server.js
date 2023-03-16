@@ -1,6 +1,6 @@
 const express = require('express');
-const APIroutes = require("./routes/apiRoutes.js");
-const htmlRoutes = require("./routes/htmlRoutes.js");
+const apiRouter = require("./routes/apiRoutes");
+const htmlRouter = require("./routes/htmlRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -14,9 +14,9 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'));
 
 // set app to use html route
-app.use('/', htmlRoutes);
+app.use('/', htmlRouter);
 //set app to use route
-app.use('/', APIroutes);
+app.use('/api', apiRouter);
 
 // set listening on the port
 

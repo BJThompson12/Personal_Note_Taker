@@ -1,5 +1,7 @@
 // require the router to be used
-const router = require('express').Router();
+//const router = require('express').Router();
+const express = require('express')
+const router = express.Router()
 // // require  path to add the file string
  const path = require('path');
 
