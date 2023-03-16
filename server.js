@@ -26,11 +26,12 @@ app.use(express.static('public'));
 //  res.sendFile(path.join(__dirname, './public/notes.html'));
 // });
 
+//set app to use route
+app.use('/api', apiRouter);
+
 app.use('/', htmlRouter)
 // set app to use html route
 //app.use('/', htmlRouter);
-//set app to use route
-app.use('/api', apiRouter);
 
 // set listening on the port
 
