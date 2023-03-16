@@ -1,11 +1,9 @@
 const express = require('express');
-// const apiRouter = require("./routes/apiRoutes");
-// const htmlRouter = require("./routes/htmlRoutes");
-const apiRouter = require('./routes/apiRoutes')
-const path = require('path');
-const htmlRouter = require('./routes/htmlRoutes');
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const apiRouter = require('./routes/apiRoutes')
+const htmlRouter = require('./routes/htmlRoutes');
 
 // middleware has to be in order bc it reads top to bottom of file
 // parse TO JSON
@@ -31,10 +29,8 @@ app.use('/api', apiRouter);
 
 app.use('/', htmlRouter)
 // set app to use html route
-//app.use('/', htmlRouter);
 
 // set listening on the port
-
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
