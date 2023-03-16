@@ -2,7 +2,7 @@ const express = require('express');
 const APIroutes = require("./routes/apiRoutes.js");
 const htmlRoutes = require("./routes/htmlRoutes");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // middleware has to be in order bc it reads top to bottom of file
 // parse TO JSON

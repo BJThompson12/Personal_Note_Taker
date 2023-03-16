@@ -9,7 +9,7 @@ router.get('/notes', (req, res) => {
 });
 
   // router to go back to home page
-  router.get('*', (req, res) => {
+  router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
 
