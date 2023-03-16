@@ -12,8 +12,9 @@ const { v4: uuidv4 } = require('uuid');
 
 //get the information from the database
 apiRouter.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, "../db/db.json"));
-  //res.json(JSON.parse(data))
+  const data = fs.readFileSync('./db/db.json')
+  //res.sendFile(path.join(__dirname, "../db/db.json"));
+  res.json(JSON.parse(data))
   });
 
 // create a variable to require in the JSON
