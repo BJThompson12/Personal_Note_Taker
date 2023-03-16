@@ -1,7 +1,7 @@
 // require the router to be used
 //const apiRouter = require('express').Router();
 const express = require('express')
-const apiRouter = express.Router()
+const router = express.Router()
 // require  path to add the file string
  const path = require('path');
  // require fs to read and write
@@ -11,7 +11,7 @@ const apiRouter = express.Router()
 const { v4: uuidv4 } = require('uuid');
 
 //get the information from the database
-apiRouter.get('/notes', (req, res) => {
+router.get('/notes', (req, res) => {
   const data = fs.readFileSync('./db/db.json')
   //res.sendFile(path.join(__dirname, "../db/db.json"));
   res.json(JSON.parse(data))
@@ -39,7 +39,7 @@ apiRouter.get('/notes', (req, res) => {
 //   res.json(notesDatabase);
 // });
 
-apiRouter.post("/notes", (req, res) => {
+router.post("/notes", (req, res) => {
   console.log(req.id);
   const { title, text } = req.body;
   let id = uuidv4();
@@ -69,7 +69,7 @@ apiRouter.post("/notes", (req, res) => {
 });
 
 // create router to to delete a note
-apiRouter.delete("/notes/:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
 
   let id = req.params.id
 
@@ -95,4 +95,4 @@ apiRouter.delete("/notes/:id", (req, res) => {
 });
 
 //export the router
-module.exports = apiRouter;
+module.exports = router;

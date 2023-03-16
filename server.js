@@ -1,16 +1,16 @@
 const express = require('express');
 const path = require('path');
-// const htmlRouter = require('./routes/htmlRoutes');
-const apiRouter = require('./routes/apiRoutes')
 
+const router = require('./routes/apiRoutes.js')
 const app = express();
-const PORT = process.env.PORT || 3001;
+
+const PORT = process.env.PORT || 3000;
 
 // To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
 app.use(express.static('public'));
 
 // parse for web
-app.use(express.urlencoded({extended: true}))
+//app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 // router to go back to home page
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
  });
  
 //set app to use route
-app.use('/api', apiRouter);
+app.use('/api', router);
 // set app to use html route
 // app.use('/', htmlRouter)
 
