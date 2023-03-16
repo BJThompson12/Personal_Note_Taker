@@ -8,15 +8,12 @@ const fs = require('fs')
 
 // require  path to add the file string
  const path = require('path');
-// require the ID generator
-// uuidv4() to use
+// require the ID generator uuidv4() to use
 const { v4: uuidv4 } = require('uuid');
 
 //get the information from the database
 apiRouter.get('/notes', (req, res) => {
-  // const data = fs.readFileSync('./db/db.json')
   res.sendFile(path.join(__dirname, "../db/db.json"));
-  // res.json(JSON.parse(data))
   });
 
   apiRouter.post("/notes", (req, res) => {
