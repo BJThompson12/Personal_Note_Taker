@@ -3,6 +3,7 @@ const express = require('express');
 // const htmlRouter = require("./routes/htmlRoutes");
 const apiRouter = require('./routes/apiRoutes')
 const path = require('path');
+const htmlRouter = require('./routes/htmlRoutes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,15 +17,16 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'));
 
  // router to go back to home page
- app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
+//  app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, './public/index.html'));
+// });
 
-// get from the home page to send the notes page
-app.get('/notes', (req, res) => {
- res.sendFile(path.join(__dirname, './public/notes.html'));
-});
+// // get from the home page to send the notes page
+// app.get('/notes', (req, res) => {
+//  res.sendFile(path.join(__dirname, './public/notes.html'));
+// });
 
+app.use('/', htmlRouter)
 // set app to use html route
 //app.use('/', htmlRouter);
 //set app to use route
