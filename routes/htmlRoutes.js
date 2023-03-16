@@ -4,7 +4,7 @@ const router = require('express').Router();
  const path = require('path');
 
  // router to go back to home page
- router.get('/', (req, res) => {
+ router.get('*', (req, res) => {
    res.sendFile(path.join(__dirname, '../public/index.html'));
  });
 // get from the home page to send the notes page
