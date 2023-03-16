@@ -13,8 +13,8 @@ router.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, "../db/db.json"));
 
   });
-/*
-  apiRouter.post("/notes", (req, res) => {
+
+  router.post("/notes", (req, res) => {
     const { title, text } = req.body;
     let id = uuidv4();
     console.log(id);
@@ -43,7 +43,7 @@ router.get('/notes', (req, res) => {
     });
     
     // create router to to delete a note
-    apiRouter.delete("/notes/:id", (req, res) => {
+    router.delete("/notes/:id", (req, res) => {
       
       let id = req.params.id
       
@@ -67,7 +67,7 @@ router.get('/notes', (req, res) => {
           }
         });
       });
-      */
+    
       //export the router
       module.exports = router;
 
@@ -78,7 +78,7 @@ router.get('/notes', (req, res) => {
       //write the db JSON
       
       // create post route to POST add the note to the db  
-      // apiRouter.post('/notes', (req, res) => {
+      // router.post('/notes', (req, res) => {
       //  // console.log(req.body);
       //  // create a varioable for the note note must include the unique id
       //  const newNote = {
