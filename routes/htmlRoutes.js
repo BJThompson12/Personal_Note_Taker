@@ -7,7 +7,7 @@ const htmlRouter = express.Router()
 
  // router to go back to home page
  htmlRouter.get('/', (req, res) => {
-   res.sendFile(path.join(__dirname, './public/index.html'));
+   res.sendFile(path.join(__dirname, '../public/index.html'));
  });
  
 // get from the home page to send the notes page
