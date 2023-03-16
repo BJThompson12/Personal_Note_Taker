@@ -14,8 +14,10 @@ router.get('/notes.html', (req, res) => {
   console.log(notesDatabase);
 });
 
+// set a POST to add a created note
 router.post('/notes.html', (req, res) => {
-  const { title, text } = req.body;
+  let title = req.body.title;
+  let text = req.body.text;
   let id = uuidv4();
   console.log(id);
   const newData = {
@@ -23,13 +25,14 @@ router.post('/notes.html', (req, res) => {
     text,
     id,
   };
+  // read the current db
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
     } else {
       const parsedData = JSON.parse(data);
       parsedData.push(newData);
-      console.log(parsedData);
+      // wrtie the new database
       fs.writeFile(
         './db/db.json',
         JSON.stringify(parsedData, null, 5),
@@ -44,17 +47,19 @@ router.post('/notes.html', (req, res) => {
 
 // create router to to delete a note
 router.delete('/notes/:id', (req, res) => {
+  // declare the id of what was clicked
   let id = req.params.id;
-  console.log(`this is the id ${id}`);
-
+  // read the current db
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
     } else {
       const parsedData = JSON.parse(data);
+      // match the id's
       const index = parsedData.findIndex((element) => element.id === id);
       if (index !== -1) {
         parsedData.splice(index, 1);
+        // write the db
         fs.writeFile(
           './db/db.json',
           JSON.stringify(parsedData, null, 5),
@@ -70,25 +75,3 @@ router.delete('/notes/:id', (req, res) => {
 
 //export the router
 module.exports = router;
-
-// create a variable to require in the JSON
-// read the db JSON file
-//write the db JSON
-
-// create post route to POST add the note to the db
-// router.post('/notes', (req, res) => {
-//  // console.log(req.body);
-//  // create a varioable for the note note must include the unique id
-//  const newNote = {
-//    "title": req.body.title,
-//    "text": req.body.text,
-//    "id": uuidv4()
-//   }
-//   // add the note to the db object
-//   notesDatabase.push(newNote)
-
-//   // need to send the data to the database in json format
-//   fs.writeFile((__dirname, '../db/db.json'),
-//   JSON.stringify(notesDatabase, null, 2))
-//   res.json(notesDatabase);
-// });

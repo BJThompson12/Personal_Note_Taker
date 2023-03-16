@@ -11,7 +11,6 @@ router.get('/notes.html', (req, res) => {
  // get home page
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/pages/index.html'));
-  console.log(__dirname);
 });
 
 // exports the router module for use in the main server file

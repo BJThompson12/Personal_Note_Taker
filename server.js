@@ -4,33 +4,23 @@ const express = require('express');
 const path = require('path');
 //require the api routes
 const apiRoutes = require('./apiRoutes.js')
+// require the html routs
 const htmlRoutes = require('./htmlRoutes.js')
 const app = express();
-
+ //define listening port
 const PORT = process.env.PORT || 3001;
-
-// To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
 
 // parse for web
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+// To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
 app.use(express.static(path.join(__dirname, 'public')));
+
 //set app to use route
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes)
-/*
-// get home page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/pages/index.html'));
-  console.log(__dirname);
-});
 
-// get route for notes page
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
- });
- */
 // set listening on the port
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
+  console.log(`App listening on port ${PORT} 🚀`);
 });
