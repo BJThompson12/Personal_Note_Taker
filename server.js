@@ -1,10 +1,10 @@
 // require exress
 const express = require('express');
 //require path
-//const path = require('path');
+const path = require('path');
 //require the api routes
 const apiRoutes = require('./routes/apiRoutes.js')
-const htmlRoutes = require('./routes/htmlRoutes.js')
+//const htmlRoutes = require('./routes/htmlRoutes.js')
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -17,19 +17,20 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 //set app to use route
 app.use('/routes', apiRoutes);
-app.use('/', htmlRoutes)
+//app.use('/', htmlRoutes)
 
-/*
+
 // get home page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/pages/index.html'));
+  console.log(__dirname);
 });
 
 // get route for notes page
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
  });
- */
+ 
 
 // set listening on the port
 app.listen(PORT, () => {

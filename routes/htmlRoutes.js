@@ -15,4 +15,3 @@ router.get('*', (req, res) => {
 });
 
 // exports the router module for use in the main server file
-module.exports = router;
