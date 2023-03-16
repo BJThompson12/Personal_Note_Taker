@@ -4,9 +4,8 @@ const express = require('express');
 const path = require('path');
 //require the api routes
 const apiRoutes = require('./apiRoutes.js')
-//const htmlRoutes = require('./routes/htmlRoutes.js')
+const htmlRoutes = require('./htmlRoutes.js')
 const app = express();
-
 
 const PORT = process.env.PORT || 3001;
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 //set app to use route
 app.use('/api', apiRoutes);
-//app.use('/', htmlRoutes)
+app.use('/', htmlRoutes)
 /*
 // get home page
 app.get('/', (req, res) => {

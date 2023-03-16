@@ -4,8 +4,8 @@ const router = require('express').Router()
 const path = require('path');
 
 // get route for notes page
-router.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/pages/notes.html'))
+router.get('/notes.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '/notes.html'))
  });
 
  // get home page
@@ -15,3 +15,4 @@ router.get('*', (req, res) => {
 });
 
 // exports the router module for use in the main server file
+module.exports = router

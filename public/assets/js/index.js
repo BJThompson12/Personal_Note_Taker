@@ -34,7 +34,7 @@ const getNotes = () =>
   });
 // when you hit save
 const saveNote = (note) =>
-  fetch('/api/notes', {
+  fetch('/api/notes.html', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -119,7 +119,6 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  console.log(jsonNotes);
   if (window.location.pathname === '/notes.html') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
@@ -174,7 +173,7 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
-if (window.location.pathname === '/notes') {
+if (window.location.pathname === '/notes.html') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
