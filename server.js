@@ -7,6 +7,7 @@ const apiRoutes = require('./routes/apiRoutes.js')
 //const htmlRoutes = require('./routes/htmlRoutes.js')
 const app = express();
 
+
 const PORT = process.env.PORT || 3001;
 
 // To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
