@@ -13,17 +13,6 @@ app.use(express.urlencoded({extended: true}))
 
 // To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
 
-
- // router to go back to home page
-//  app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/index.html'));
-// });
-
-// // get from the home page to send the notes page
-// app.get('/notes', (req, res) => {
-//  res.sendFile(path.join(__dirname, './public/notes.html'));
-// });
-
 //set app to use route
 app.use('/api', apiRouter);
 app.use(express.static('public'));
