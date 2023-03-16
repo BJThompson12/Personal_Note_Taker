@@ -2,9 +2,9 @@
 const express = require('express');
 //require path
 const path = require('path');
-const apiRouter = require('./routes/apiRoutes.js');
 //require the api routes
-const api = require('./routes/apiRoutes.js')
+const apiRoutes = require('./routes/apiRoutes.js')
+const htmlRoutes = require('./routes/htmlRoutes.js')
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -16,9 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 //set app to use route
-app.use('/api', apiRouter);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes)
 
-
+/*
 // get home page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/pages/index.html'));
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
  });
+ */
 
 // set listening on the port
 app.listen(PORT, () => {

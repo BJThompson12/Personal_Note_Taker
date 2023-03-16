@@ -1,20 +1,17 @@
 // require the router to be used
-//const apiRouter = require('express').Router();
-//const express = require('express')
-// require fs to read and write
-const apiRouter = require('express').Router()
-const fs = require('fs')
-// const apiRouter = express.Router()
-
+const router = require('express').Router()
 // require  path to add the file string
- const path = require('path');
+const path = require('path');
+// require fs to read and write
+const fs = require('fs')
 // require the ID generator uuidv4() to use
 const { v4: uuidv4 } = require('uuid');
+const notesDatabase = require('../db/db.json') 
 
 //get the information from the database
-apiRouter.get('/notes', (req, res) => {
+router.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, "../db/db.json"));
-  
+
   });
 /*
   apiRouter.post("/notes", (req, res) => {
@@ -72,7 +69,7 @@ apiRouter.get('/notes', (req, res) => {
       });
       */
       //export the router
-      module.exports = apiRouter;
+      module.exports = router;
 
 
 
