@@ -10,7 +10,6 @@ const notesDatabase = require('../db/db.json')
 // uuidv4() to use
 const { v4: uuidv4 } = require('uuid');
 
-
 //get the information from the database
 router.get('/api/notes', (req, res) => {
   res.sendFile(path.join(__dirname, "../db/db.json"));

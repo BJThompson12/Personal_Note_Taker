@@ -3,14 +3,14 @@ const router = require('express').Router();
 // // require  path to add the file string
  const path = require('path');
 
+ // router to go back to home page
+ router.get('/', (req, res) => {
+   res.sendFile(path.join(__dirname, '../public/index.html'));
+ });
 // get from the home page to send the notes page
 router.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
-  // router to go back to home page
-  router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-  });
 
 module.exports = router;
