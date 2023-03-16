@@ -4,7 +4,7 @@ const htmlRoutes = require("./routes/htmlRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// middleware has to be in order bc it reads top to bottom
+// middleware has to be in order bc it reads top to bottom of file
 // parse TO JSON
 app.use(express.json());
 // parse for web
