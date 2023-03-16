@@ -2,6 +2,7 @@
 const express = require('express');
 //require path
 const path = require('path');
+const apiRouter = require('./routes/apiRoutes.js');
 //require the api routes
 const api = require('./routes/apiRoutes.js')
 const app = express();
@@ -13,10 +14,10 @@ const PORT = process.env.PORT || 3001;
 // parse for web
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-//set app to use route
-app.use('/api', api);
-
 app.use(express.static('public'));
+//set app to use route
+app.use('/api', apiRouter);
+
 
 // get home page
 app.get('/', (req, res) => {

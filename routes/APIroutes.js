@@ -14,8 +14,9 @@ const { v4: uuidv4 } = require('uuid');
 //get the information from the database
 apiRouter.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, "../db/db.json"));
+  
   });
-
+/*
   apiRouter.post("/notes", (req, res) => {
     const { title, text } = req.body;
     let id = uuidv4();
@@ -69,7 +70,7 @@ apiRouter.get('/notes', (req, res) => {
           }
         });
       });
-      
+      */
       //export the router
       module.exports = apiRouter;
 
