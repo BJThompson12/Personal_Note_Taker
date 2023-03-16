@@ -11,9 +11,8 @@ const htmlRouter = express.Router()
    res.sendFile(path.join(__dirname + '/../public/notes.html'))
   });
  // router to go back to home page
- htmlRouter.get('*', (req, res, next) => {
+ htmlRouter.get('*', (req, res) => {
    res.sendFile(path.join(__dirname + '/../public/index.html'));
-   next()
   });
 
 module.exports = htmlRouter;
