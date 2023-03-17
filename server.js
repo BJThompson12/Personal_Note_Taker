@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //set app to use route
 app.use('/api', apiRoutes);
-app.use('/', htmlRoutes)
+app.use('*', htmlRoutes)
 
 // set listening on the port
 app.listen(PORT, () => {
